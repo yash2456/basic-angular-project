@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="card border-0">
+        <form #myform="ngForm" (ngSubmit)="dosumit()">
+            <h1 style="text-align: center;">Compase Email..</h1>
+            <mat-form-field class="field" appearance="outline">
+                <mat-label>To</mat-label>
+                <input name="to" [(ngModel)]="data.to" (keyup)="checkVal($event.key)" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="field" appearance="outline">
+                <mat-label>Subject</mat-label>
+                <input name="subject" [(ngModel)]="data.subject" (keyup)="checkVal($event.key)" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="field" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="password" name="Password" [(ngModel)]="data.Password" (keyup)="checkVal($event.key)"
+                    matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="field" appearance="outline">
+                <mat-label>Enter your massage</mat-label>
+                <textarea name="message" rows="10" [(ngModel)]="data.message" (keyup)="checkVal($event.key)" matInput
+                    placeholder="hey, what are you saying..."></textarea>
+            </mat-form-field>
+            <div class="text-center">
+                <mat-spinner *ngIf="flag" style="margin: auto;"></mat-spinner>
+                <button [disabled]="buttDisabled" type="submit" mat-raised-button color="primary">Send</button>
+                <button type="reset" (click)=" buttDisabled = true" mat-raised-button color="accent">resent</button>
+            </div>
+        </form>
+        <!-- {{data | json}} -->
+    </div>
+</div>
